@@ -1,0 +1,56 @@
+﻿<Application x:Class="WoundsCalculator.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:src="clr-namespace:WoundsCalculator"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             Startup="AppStartup">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type src:Calculation}">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="0,0,8,0">Attacker</TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock>Amount</TextBlock>
+                        <xctk:IntegerUpDown x:Name="Amount" FormatString="N0" Value="{Binding Path=Amount}" Increment="1" Maximum="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock>Ballistic Skill</TextBlock>
+                        <xctk:IntegerUpDown x:Name="BS" FormatString="N0" Value="{Binding Path=BS}" Increment="1" Maximum="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock>Strength</TextBlock>
+                        <xctk:IntegerUpDown  FormatString="N0" Value="{Binding Path=Strength}" Increment="1" Maximum="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock>AP</TextBlock>
+                        <xctk:IntegerUpDown FormatString="N0" Value="{Binding Path=AP}" Increment="1" Maximum="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock>Damage</TextBlock>
+                        <xctk:IntegerUpDown  FormatString="N0" Value="{Binding Path=Damage}" Increment="1" Maximum="20"/>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock Margin="10,10,0,0">Defender</TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock>Thoughness</TextBlock>
+                        <xctk:IntegerUpDown FormatString="N0" Value="{Binding Path=Toughness}" Increment="1" Maximum="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock>Armour Save</TextBlock>
+                        <xctk:IntegerUpDown  FormatString="N0" Value="{Binding Path=ArmourSave}" Increment="1" Maximum="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock>Invul Save</TextBlock>
+                        <xctk:IntegerUpDown  FormatString="N0" Value="{Binding Path=InvulSave}" Increment="1" Maximum="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock>Wounds</TextBlock>
+                        <xctk:IntegerUpDown FormatString="N0" Value="{Binding Path=Wounds}" Increment="1" Maximum="20"/>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock x:Name="TotalWoundAmountTextBlock" Margin="0,0,8,0" Text="{Binding Path=TotalWoundAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
